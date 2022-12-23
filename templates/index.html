@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A URL Shortener</title>
+</head>
+
+<style>
+    body,
+    section {
+        display: flex;
+        /* background-image: linear-gradient(to right, rgba(229, 255, 0, 0), rgba(255, 0, 0, 1)); */
+        text-align: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: 'Franklin Gothic Medium', sans-serif;
+        line-height: 1.5;
+        color: #111;
+    }
+
+    main {
+        width: 620px;
+        height: 400px;
+        width: 42%;
+        border: 2.5px solid rgb(180, 156, 2);
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    input {
+        box-sizing: border-box;
+        width: 95%;
+        height: 7vh;
+        padding: 5px;
+    }
+
+    .buttons {
+        display: flex;
+        padding: 16px;
+    }
+
+    button {
+        font-size: 20px;
+        cursor: pointer;
+        flex: 1;
+        background-color: rgb(180, 156, 2);
+        color: white;
+        height: 8vh;
+        width: auto;
+
+    }
+
+    button:hover {
+        background-color: white;
+        color: black;
+    }
+
+    section {
+        min-height: 120px;
+        text-align: center;
+        background-color: white;
+    }
+</style>
+
+<body>
+    <main>
+        <h2>Easy way to shorten your long urls!</h2>
+        <form action="/udhar" method="post" id="postform">
+            {% csrf_token %}
+            <input type="text" name="link" id="link" placeholder="Enter your url">
+            <div class="buttons">
+                <button type="submit" id="reduce">Shorten the url</button>
+            </div>
+        </form>
+
+        <section id="section">
+            <h4 id="sending">
+                {{ sending }}
+            </h4>
+        </section>
+
+    </main>
+
+    <!-- <script type="text/javascript">
+        $(document).on('submit', '#post-form', function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: '/create',
+                data: {
+                    link: $('#link').val(),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function (data) {
+                    $('h4').html("www.surls.ga/" + data)
+                }
+            });
+        });
+    </script> -->
+
+</body>
+
+</html>
