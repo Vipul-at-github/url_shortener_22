@@ -87,11 +87,11 @@
 <body>
     <main>
         <h2>Easy way to shorten your long urls!</h2>
-        <form action="/redirect" method="post" id="postform">
+        <form action="/redirect" method="post"  id="postform">
             {% csrf_token %}
             <input type="text" name="link" id="link" placeholder="Enter your url here">
             <div class="buttons">
-                <button type="submit" id="reduce">Shorten the url</button>
+                <button type="button" onclick="check()" id="reduce">Shorten the url</button>
             </div>
         </form>
 
@@ -115,6 +115,23 @@
     </main>
 
 
-</body>
 
+    
+</body>
+    <script>
+        function check(){
+            console.log("function is called")
+            var url = document.getElementById("link").value;
+            // check if string is a valid link 
+
+            if(url.includes("http://") || url.includes("https://")){
+                document.getElementById("postform").submit();
+            }
+            else{
+                alert("Please enter a valid url\nHint : It must start with https:// or http://");
+            }
+
+        }
+        
+    </script>
 </html>
