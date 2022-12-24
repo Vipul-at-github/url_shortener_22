@@ -41,6 +41,7 @@
         width: 95%;
         height: 7vh;
         padding: 5px;
+
     }
 
     .buttons {
@@ -56,11 +57,12 @@
         color: white;
         height: 8vh;
         width: auto;
+        border-radius: 10px;
 
     }
 
     button:hover {
-        background-color: white;
+        background-color: whitesmoke;
         color: black;
     }
 
@@ -69,14 +71,25 @@
         text-align: center;
         background-color: white;
     }
+
+    h3 {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    #desc {
+        display: flex;
+        text-align: center;
+
+    }
 </style>
 
 <body>
     <main>
         <h2>Easy way to shorten your long urls!</h2>
-        <form action="/udhar" method="post" id="postform">
+        <form action="/redirect" method="post" id="postform">
             {% csrf_token %}
-            <input type="text" name="link" id="link" placeholder="Enter your url">
+            <input type="text" name="link" id="link" placeholder="Enter your url here">
             <div class="buttons">
                 <button type="submit" id="reduce">Shorten the url</button>
             </div>
@@ -88,25 +101,19 @@
             </h4>
         </section>
 
+
+        <h3>Description:</h3>
+        <div id="desc">
+            <p>A Url Shortener is a very handy tool which can be used to shorten long urls.
+                There are many urls which consist of query parameters.
+                These parameters can be multiple which makes the urls long.
+                These long urls can become hard to handle.So a url shortener becomes a useful tool here.
+                It shortens the length of a url but this shortened url will take you to the same address as the longer
+                one
+            </p>
+        </div>
     </main>
 
-    <!-- <script type="text/javascript">
-        $(document).on('submit', '#post-form', function (e) {
-            e.preventDefault();
-
-            $.ajax({
-                type: 'POST',
-                url: '/create',
-                data: {
-                    link: $('#link').val(),
-                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-                },
-                success: function (data) {
-                    $('h4').html("www.surls.ga/" + data)
-                }
-            });
-        });
-    </script> -->
 
 </body>
 
